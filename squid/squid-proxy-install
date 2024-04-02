@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Aktualizacja systemu
+echo "Aktualizacja systemu..."
+sudo apt update -y
+sudo apt upgrade -y
+
+# Instalacja Squida
+echo "Instalacja Squida..."
+sudo apt install squid -y
+
+# Konfiguracja Squida
+echo "Konfigurowanie Squida..."
+sudo cp /etc/squid/squid.conf /etc/squid/squid.conf.backup
+echo "
+# Konfiguracja podstawowa
+http_port 3128
+acl allowed_ips src all
+http_access allow allowed_ips
+" | sudo tee /etc/squid/squid.conf
+
+# Restart Squida, aby zastosować konfigurację
+echo "Restartowanie Squida..."
+sudo systemctl restart squid
+
+# Ustawienie Squida, aby uruchamiał się przy starcie systemu
+echo "Ustawianie Squida do uruchamiania przy starcie..."
+sudo systemctl enable squid
+
+echo "Instalacja i konfiguracja Squida zakończona pomyślnie!"
