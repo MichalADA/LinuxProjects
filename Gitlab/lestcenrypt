@@ -1,0 +1,12 @@
+sudo nano /etc/gitlab/gitlab.rb
+
+edit this file 
+external_url 'https://yourdomain.com'
+lets_encrypt['enable'] = true
+lets_encrypt['contact_emails'] = ['youremail@example.com'] # Opcjonalnie: email do powiadomień od Let's Encrypt
+# lets_encrypt['auto_renew'] = true # Ta opcja jest domyślnie włączona
+
+#  in newer versions, you only need  
+external_url 'https://yourdomain.com'
+
+sudo gitlab-ctl reconfigure
