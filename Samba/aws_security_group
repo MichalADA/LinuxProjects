@@ -1,0 +1,12 @@
+
+Linux Group
+aws ec2 authorize-security-group-ingress --group-id $LINUX_SG_ID --protocol tcp --port 139 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id $LINUX_SG_ID --protocol tcp --port 445 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id $LINUX_SG_ID --protocol udp --port 137-138 --cidr 0.0.0.0/0
+
+
+Windows Group 
+ws ec2 authorize-security-group-ingress --group-id $WINDOWS_SG_ID --protocol tcp --port 3389 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id $WINDOWS_SG_ID--protocol tcp --port 139 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id $WINDOWS_SG_ID --protocol tcp --port 445 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id $WINDOWS_SG_ID --protocol udp --port 137-138 --cidr 0.0.0.0/0

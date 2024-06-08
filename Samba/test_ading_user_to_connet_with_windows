@@ -1,0 +1,3 @@
+sudo adduser karolwojek
+sudo smbpasswd -a karolwojek
+sudo smbpasswd -e karolwojek
