@@ -1,0 +1,5 @@
+mkdir elk-stack
+cd elk-stack
+
+
+docker compose up -d 
